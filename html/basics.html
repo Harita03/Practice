@@ -1,0 +1,183 @@
+1.what is HTML?
+HTML stands for "Hyper Text Markup Language"
+HTML used to describe the structure of the web page.
+HTML elements tells the browser how to display the content.
+
+Basic structure:
+<!DOCTYPE html>    => doctype is just a document type definition, tells the browser what version of html is used, it is for HTML5
+<html>
+    <head>
+    <title>"It will display in browser tab"</title>
+    <link rel="icon" type="image" href="favicon.ico">  //It helps to add favicon to the page in browser tab
+    <!-- meta tags will not be displayed in webpage, but it tells the browser how to display the content and helps the search engine(with keywords) -->
+    <meta charset ="UTF-8"> // this character set covers all the characters, emoji's and symbols in the world
+    <meta name="description" content="Learning html"> //It helps to describe the content of the page, it will be displayed in search engine results
+    <meta name="keywords" content="html, css, javascript">  //It helps the search engine to find the page with these keywords
+    <meta name="auhtor" content="Haritha"> 
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">   //It helps to make our webpage responsive
+    </head>
+    <body>
+    <h1>Heading for the page goes here..</h1>
+    </body>
+</html>
+
+2.HTML elements
+It includes form starting tag ,conytent and ending tag.
+EG:
+<start>content...</start>
+
+3.HTML attributes
+It gives additional information about the elements.
+It always comes in starting tag of elements.
+It looks like this => name="value"
+eg:
+style => It is used for inline styling. Looks like  => style="property:value;"
+         few properies are => color(#fff=>white, #000=>black), background-color, font-family, font-size, text-align, margin, padding, border, width, height
+
+4.HTML tags
+h1 to h6  => h1 holds the most important heading and h6 holds the least important heading
+p => paragraph tag used to display the content. It always stars on new line. If you want to break the like then use <br> or you want to separate the content then use <hr>
+a => anchor tag used to create hyperlinks. It has href attribute which holds the url. <a href="https://sampleurl.com">Sample url</a>
+div => It acts as a container for other elements. It is used to group the content. It is block level.
+
+5.special tags
+<b>used to bold the text, without any extra importance</b>  
+<strong>used to bold the text with importance</strong>  
+<i>used to show the text italic</i>  
+<em>used to show text in italic, screenreader will pronounce the words in this tag with an emphasis</em>
+<sub>subscript is used to provide text half character below the line eg:H2O</sub>
+<sup>superscript is used to provide text half character ablove the line eg:A2</sup>
+
+6.links
+links are hyperlinks. Themain attribute of <a></a> is href and target.
+Target contains 4 properties,
+1. _self => default, opens the content in same tab/window
+2. _blank => opens the content in new tab/window
+3. _parent => opens the content in parent window 
+4. _top => opens the content in full body of window
+eg:
+<a href="https://google.com" target="_blank">Google</a>
+Color property,
+it comes with types like => link, visited, hover, active
+Bookmarking links,
+We need to add id to the content, then need to provide the value of id in href attribute of <a> tag
+    eg: <h2 id="1">Bookmark comes here</h2>
+        <a href="#1">click to navigate</a>
+
+7.images
+<img> tag is used to display the images.
+It looks like => <img src="girl.jpg" alt="girl image"> 
+src => it will hold the path where image is saved
+alt => it will provide the description of the image , while brower cant able to load it.
+Background image,
+We can add background image only through style. 
+eg: <p style="background-image:url('girl.jpg');" ></p>      
+some of the styling properties are,..
+background-repeat: no-repeat => it helps not to repeat the image 
+background-size: cover => it helps to cover the whole area of the element
+background-attachment: fixed => it helps to stick the background image from scrolling
+
+8.semantic elements
+Elements with meaning.
+<header>Tells about heading</header>
+<footer>Tells about footer content like copywright info, contact info..</footer>
+<table>Forms the table which has rows and columns</table>
+<article>used to display the content which is independent</article>
+<aside>used to keep not important contents or may be related to the page content</aside>
+<nav>used to keep navigation links</nav>
+
+9.Iframes
+It is used to display webpage within a webpage
+It looks like => <iframe src="sampleiframe.html" title="iframe example" ></iframe>
+
+10.Block and Inline
+Block: Block level elements always starts on new line. It takes up whole width.
+eg: div, p, article, footer, header, table, hr 
+Inline: It does not start on a new line. It will take up only the necessary space.
+eg: span, a, img, br, sub, sup, em, strong 
+
+11.Lists
+ There are three types,
+ 1. Ordered Lists 
+ <ol>
+    <li>First</li>
+    <li>Second</li>
+ </ol>
+ 2.Unordered Lists 
+ <ul>
+    <li>First</li>
+    <li> Second</li>
+ </ul>
+ 3.Description list
+ <dl>
+    <dt>key 1</dt>
+    <dd>description value 1</dd>
+    <dt>key 2</dt>
+    <dd>description value 2</dd>
+ </dl>
+
+ 12. Tables
+  It allows developers to arrange data in rows and columns.
+  <table>
+    <tr>
+        <th>head1</th>
+        <th>head2</th>
+    </tr>
+    <tr>
+        <td>col1</td>
+        <td>col2</td>
+    </tr>
+  </table>
+
+colspan => to merge the columns eg: <th colspan="2">Merged Header</th>
+rowspan => to merge the rows eg: <td rowspan="2">Merged Cell</td>
+
+13. Forms
+ Form element is used to collect the user input. 
+ <form>
+    <label for="fname">First name:</label> <br>
+    <input type="text" id="fname" value="John" name="fname"><br>
+ </form>
+
+input attributes:
+ type :It specifies the type of input field. eg: text, number, email, password, date, button, submit, checkbox, radio, image
+ readonly : user cannot modify the value 
+ required: mandatory to fill 
+ disabled: value field will be disabled
+ multiple: user can select more than one value 
+ autofocus: it will focus on the input field when the page loads  
+ size: it specifies the size of value // only applicale for text, number, email, password
+ maxlength: it specifies the maximum length of the value  //applicable for all kinds of input except checkbox, radio, file
+ autocomplete: it allows browser to guess the value eg: <form autocomplete="on"></form>
+
+select element: It is used to create dropdown list.
+eg: <label for="dropdown">Dropdown</label>
+    <select id="dropdown" name="dropdown" multiple>    //multiple attribute specifies that user can multiselect the options
+        <option value="option 1">Option 1</option>
+        <option value="option 2">Option 2</option>
+    </select>
+
+textarea element: It is used to create multi-line text input.
+eg:  <textarea id="message" rows="5" cols="5" placeholder="type here"></textarea>    
+
+button element: It is used to create button.
+eg:  <button type="button" onClick="alert('Button clicked!')">Click</button>
+
+fieldset and legend: Fieldset is used to create a separate set of data and legend gives the title to it.
+eg:   <form>
+    <fieldset>
+        <legend>Title for a section</legend>
+        <label for="fname">First name:</label> <br>
+        <input type="text" id="fname" value="John" name="fname"><br>
+        <button type="button" onClick="alert('Button clicked!')">Click</button>
+    </fieldset>
+</form>
+
+datalist element: It is used to search options with input box for dropdown 
+eg:  <form>
+     <input list="dropdown" >
+     <dataset id="dropdown">
+        <option value="Option 1">
+        <option value="Option 2">
+     </dataset>
+</form>
