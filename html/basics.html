@@ -1,4 +1,4 @@
-1.what is HTML?
+<!-- 1.what is HTML? -->
 HTML stands for "Hyper Text Markup Language"
 HTML used to describe the structure of the web page.
 HTML elements tells the browser how to display the content.
@@ -21,12 +21,12 @@ Basic structure:
     </body>
 </html>
 
-2.HTML elements
+<!-- 2.HTML elements -->
 It includes form starting tag ,conytent and ending tag.
 EG:
 <start>content...</start>
 
-3.HTML attributes
+<!-- 3.HTML attributes -->
 It gives additional information about the elements.
 It always comes in starting tag of elements.
 It looks like this => name="value"
@@ -34,13 +34,13 @@ eg:
 style => It is used for inline styling. Looks like  => style="property:value;"
          few properies are => color(#fff=>white, #000=>black), background-color, font-family, font-size, text-align, margin, padding, border, width, height
 
-4.HTML tags
+<!-- 4.HTML tags -->
 h1 to h6  => h1 holds the most important heading and h6 holds the least important heading
 p => paragraph tag used to display the content. It always stars on new line. If you want to break the like then use <br> or you want to separate the content then use <hr>
 a => anchor tag used to create hyperlinks. It has href attribute which holds the url. <a href="https://sampleurl.com">Sample url</a>
 div => It acts as a container for other elements. It is used to group the content. It is block level.
 
-5.special tags
+<!-- 5.special tags -->
 <b>used to bold the text, without any extra importance</b>  
 <strong>used to bold the text with importance</strong>  
 <i>used to show the text italic</i>  
@@ -48,8 +48,8 @@ div => It acts as a container for other elements. It is used to group the conten
 <sub>subscript is used to provide text half character below the line eg:H2O</sub>
 <sup>superscript is used to provide text half character ablove the line eg:A2</sup>
 
-6.links
-links are hyperlinks. Themain attribute of <a></a> is href and target.
+<!-- 6.links -->
+links are hyperlinks. The main attribute of <a></a> is href and target.
 Target contains 4 properties,
 1. _self => default, opens the content in same tab/window
 2. _blank => opens the content in new tab/window
@@ -64,7 +64,7 @@ We need to add id to the content, then need to provide the value of id in href a
     eg: <h2 id="1">Bookmark comes here</h2>
         <a href="#1">click to navigate</a>
 
-7.images
+<!-- 7.images -->
 <img> tag is used to display the images.
 It looks like => <img src="girl.jpg" alt="girl image"> 
 src => it will hold the path where image is saved
@@ -77,7 +77,7 @@ background-repeat: no-repeat => it helps not to repeat the image
 background-size: cover => it helps to cover the whole area of the element
 background-attachment: fixed => it helps to stick the background image from scrolling
 
-8.semantic elements
+<!-- 8.semantic elements -->
 Elements with meaning.
 <header>Tells about heading</header>
 <footer>Tells about footer content like copywright info, contact info..</footer>
@@ -86,17 +86,17 @@ Elements with meaning.
 <aside>used to keep not important contents or may be related to the page content</aside>
 <nav>used to keep navigation links</nav>
 
-9.Iframes
+<!-- 9.Iframes -->
 It is used to display webpage within a webpage
 It looks like => <iframe src="sampleiframe.html" title="iframe example" ></iframe>
 
-10.Block and Inline
+<!-- 10.Block and Inline -->
 Block: Block level elements always starts on new line. It takes up whole width.
 eg: div, p, article, footer, header, table, hr 
 Inline: It does not start on a new line. It will take up only the necessary space.
 eg: span, a, img, br, sub, sup, em, strong 
 
-11.Lists
+<!-- 11.Lists -->
  There are three types,
  1. Ordered Lists 
  <ol>
@@ -116,7 +116,7 @@ eg: span, a, img, br, sub, sup, em, strong
     <dd>description value 2</dd>
  </dl>
 
- 12. Tables
+ <!-- 12. Tables -->
   It allows developers to arrange data in rows and columns.
   <table>
     <tr>
@@ -132,7 +132,7 @@ eg: span, a, img, br, sub, sup, em, strong
 colspan => to merge the columns eg: <th colspan="2">Merged Header</th>
 rowspan => to merge the rows eg: <td rowspan="2">Merged Cell</td>
 
-13. Forms
+<!-- 13. Forms -->
  Form element is used to collect the user input. 
  <form>
     <label for="fname">First name:</label> <br>
@@ -146,9 +146,10 @@ input attributes:
  disabled: value field will be disabled
  multiple: user can select more than one value 
  autofocus: it will focus on the input field when the page loads  
- size: it specifies the size of value // only applicale for text, number, email, password
- maxlength: it specifies the maximum length of the value  //applicable for all kinds of input except checkbox, radio, file
+ size: it specifies the size of value  // only applicale for text, number, email, password
+ maxlength: it specifies the maximum length of the value   //applicable for all kinds of input except checkbox, radio, file
  autocomplete: it allows browser to guess the value eg: <form autocomplete="on"></form>
+ action: it specifies the url where the form data will be sent when submitted. eg:<form action="/action_page.php"></form>
 
 select element: It is used to create dropdown list.
 eg: <label for="dropdown">Dropdown</label>
@@ -181,3 +182,52 @@ eg:  <form>
         <option value="Option 2">
      </dataset>
 </form>
+
+<!-- 14.Canvas -->
+      Canvas element is used to draw graphics on web pages.
+      Canvas element is the only container for graphics.
+      <canvas id="myCanvas" width="200" height="100"></canvas>
+
+<!-- 15. Audio/video -->
+Both are supported by HTML5
+<video>
+    <source src="url.." >
+</video>
+
+<audio>
+    <source src="url..">
+</audio>
+
+to embed youtube video, we use iframe 
+<iframe src="youtube url" ></iframe>
+
+<!-- 16. web storage -->
+Web storage is better than cookies. Because it stores large number of data in secure way and it will send the data to server.
+It is of 2 types,
+Localstorage: Stores large amount of data without any expiration.. [window.localStorage]
+Sessionstorage: stores large amount of data for that one session, if you come out of the page then you will lose data [window.sessionStorage]
+
+<!-- http methods -->
+It stands for Hyper Text Transfer Protocol.
+It used to enable the communication between client and server.
+It works like request-response protocol between client and server.
+ For example, If client(browser) sends request to server, then server will respond with the data.
+
+ There are 6 types of HTTP methods,
+GET: used to get data from server
+POST: used to send data to server to create/update a resource
+PUT: used to send data to server to create/upadate a resource   
+    //Diff betwee PUT and POST is, if you call PUT request with same data again, it will update the resource with same data, 
+    but POST will create a new resource with same data which leads to multiple resource with same data.
+PATCH: used to update partial data to server
+HEAD: identical to GET , the difference is it will not return the response body, only contains the head details
+DELETE: used to delete data from server
+
+Here are some status codes,
+200 : ok
+201: created
+400: bad request
+401: unauthorized
+404: not found
+500: internal server error
+502: bad gateway
