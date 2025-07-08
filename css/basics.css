@@ -1,0 +1,171 @@
+/* 1. What is CSS */
+CSS stands for Cascading Style Sheet 
+It is used to style the webpage including design and layout. 
+It can control layout multiple pages at once. 
+
+syntax : 
+     selector {
+        property: value;
+     }
+
+/* 2. ways to include css*/
+There are 3 ways to write your css, 
+Inline: It will be inside your html element, on starting tag. 
+        Eg: <p style="color:black; font-size:"20px;">This is a paragraph.</p>
+Internal: It will be placed in head section and wrapped around style element.
+        Eg: <head> 
+              <style>
+                p {
+                    color: black;
+                    font-size: 20px;
+                }
+              </style>
+            </head>  
+External: It will be written in external file, saved with .css extension and linked to .html in head tag.
+          Eg: <head>
+                <link rel="stylesheet" href="style.css">
+              </head>
+
+NOTE: Priority of css will follow below order, 
+                  Inline > Internal > External
+
+/* 3. Selectors */
+There are 8 selectors,
+Universal selector: It will select all the elements. 
+                    Eg: * {
+                            color: black;
+                           }
+Grouping selector: It helps to select multiple elements at once. 
+                    Eg: h1, p, div {
+                        color: black;
+                    }
+Element selector: It selects the element by its name. 
+                  Eg: p {
+                        color: black;
+                  }  
+Id selector: It selects based on id attribute.
+             Eg: #idname {
+                 color: black;
+             }   
+Class selector: It selects based on class attribute. 
+                Eg::after .classname {
+                    color: black;
+                } 
+attribute selector :  It selects based on attribute and value.
+                     Eg: a[href="https://www.example.com"] {
+                         color: black;
+                     }
+
+/* 4. Box model */
+      It helps to structure the design and layout. 
+      It contains content, padding, border, margin. 
+      
+/* 5.opacity */
+     It specifies the transparency of an element.
+     The value lies between 0.0 to 1.0.
+     The lower the value, the more transparent.
+      
+/* 6. Text */
+text-align: center, left, right, justify
+text-decoration: none, underline
+text-transformation: uppercase, lowercase, capitalize
+line-height: 2
+align-items: cenetr, left, right
+justify-content: center, left, right
+
+/* 7.Background */
+background-image: url("sample.jpg");
+background-color: black;
+background-repeat: no-repeat, repeat-x, repeat-y
+background-attachment: fixed, scroll 
+background-position: center, top, bottom, left, right
+background-size: cover
+
+/* 8.margin and padding */
+margin: top, right, bottom, left;
+padding: top, right, bottom, left;
+
+/* 9.font */
+font-style: italic, normal
+font-size: 20px 
+font-weight: bold 
+font-family: sans-serif, serif
+
+/* 10. list */
+list-style-type: none, circle, square 
+
+/* 11.display */
+There are 6 types,
+inline: it will take up only necessary space and width, padding and margin will work for left and right. 
+block: it will always starts on new line and take up whole width. 
+inline-block: it will only take up necessary space and width, but padding and margin will work for all sides. 
+none: it will not display the element. 
+inherit: it will inherit the properties from parent element. 
+flex: it will display the element as flex container. It works in 1 dimention, either row or column.
+grid: it will display the element as grid container. It works in 2 dimentions, both row and column.
+
+NOTE: visibility: hidden; will hide the element but take up the space
+      display: none; will hide the element and not take up the space
+
+/*12. width and max-width */
+The difference between width and max-width is, 
+   If we specify some value which is larger than screen size then it will make alignment issue.
+   To overcome this, we use max-width property. It will adjust the width in that small screen size.
+
+/*13. height and vh */
+If we specify height which is larger than screen size then it will exceed.
+To overcome this, we use viewport height (vh) property. It will cover the height in that small screen size.
+
+/* 14.position */
+There are 5 types of position,
+static: It is positioned relative to its normal flow. By default html element will be static. 
+        Not affected by top, right, bottom, left properties.
+relative: It is positioned relative to its normal position. 
+          It will react for top, right, bottom, left properties.
+fixed: It is positioned relative to its viewport, which means it alwauys stays in same position even page is scrolled.
+       It will respond to top, right, bottom, left properties. 
+absolute: It is positioned relative to its nearest positioned anchester.
+sticky: It is positioned relative to teh user scroll position.
+         It will act like relative until it reaches a defined scroll position, then it will act like fixed.
+
+/* 15.z-index */
+It is used to specify the stack order of element.
+If we use positon property then it will ctreate overlap issue. To resolve this, we use z-index property.
+The element value can be positive or negative.
+It can be used only on positioned elements or flex items.
+
+/* 16. overflow */
+It haf 4 values, 
+auto: it will add scroll whenever needed. 
+scroll: it will add the scroll bar always. 
+hidden: it will hide the extra contents. 
+visible: it will show the extra contents without scroll bar.
+
+/* 17. fload and clear, clearfix */
+Float helps to place the element on left or right side of its container.
+It is used to wrap text around the element.
+Float has 4 value: 
+left: it will float the element to left side.
+right: it will float the element to right side.
+none: it will not float the element.
+inherit: it will inherit the value from parent element.
+
+Clear specifies what element can float beside the cleared element.
+It has 5 values,
+left: The element is pushed below left floated element. 
+right: The elemnt is pushed below right floated element.
+both: The element is pushed below both left and right floated elements.
+none: The element is not pushed below any floated elements.This is default.
+inherit: The element will inherit the clear value from parent element.
+
+/* 18. pseudo-class and pseudo-element */
+
+/* 19.Specificity */
+
+/* 20.Rounded border*/
+
+/* 21.combinators */
+
+/* 22. flex */
+
+/* 23. grid */
