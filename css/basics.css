@@ -1,7 +1,7 @@
 /* 1. What is CSS */
 CSS stands for Cascading Style Sheet 
 It is used to style the webpage including design and layout. 
-It can control layout multiple pages at once. 
+It can control layout of multiple pages at once. 
 
 syntax : 
      selector {
@@ -159,12 +159,41 @@ none: The element is not pushed below any floated elements.This is default.
 inherit: The element will inherit the clear value from parent element.
 
 /* 18. pseudo-class and pseudo-element */
+Pseudo-class: It is used to specify special state of an element. We use ":" for pseudoclass.
+              Eg: a:link, a:hover, a:visited, a:active, p:first-child, p:nth-child(4), tr:nth-child(odd),
+Pseudo-element: It is used to specify part of an element, We use "::" for pseudoelement.
+              Eg: a::after, a::before, p::first-letter, p::first-line             
 
 /* 19.Specificity */
+If we use Inline, internal and externall css together, then for certain element we face issue of which css to apply. To resolve, we use specificity.
+  Inline > Id selector > Class selector/pseudo-class > Attribute selector > Element selector/pseudo-element
 
 /* 20.Rounded border*/
+If you want rounded corner then use below property,
+border-radius: 50px; /* for circle */
 
 /* 21.combinators */
+There are 4 types of combinators,
+1.Descendant combinator: It is used to selects all the element that are descendant of a specified element. It is represented with space.
+                       Eg: div p {
+                        color: blue;
+                       }   
+                       This is applicable for all p element present inside div element. 
+2.Child combinator: It is used to select all the elements that are children of specified element. It is represented with ">". 
+                    Eg: div > p {
+                        color: blue;
+                    }  
+                    This will select all p elements which is children of div element . 
+3.Next sibling combinator: It is used to select the element which is immediate next to the specified element. It is represented with "+". 
+                            Eg: h1 + p {
+                                color: blue;
+                            }
+                            It selects the first p element that is placed immediately after the h1 element
+4.Subsequent sibling combinator: It selects all the elements which are next siblings of specified element.  It is represented by "~" 
+                            Eg: div ~ p {
+                                background-color: yellow;
+                                }
+                             It selects all the elements which are next siblings of specified element   
 
 /* 22. flex */
 
