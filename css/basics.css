@@ -30,7 +30,7 @@ NOTE: Priority of css will follow below order,
                   Inline > Internal > External
 
 /* 3. Selectors */
-There are 8 selectors,
+There are 6 selectors,
 Universal selector: It will select all the elements. 
                     Eg: * {
                             color: black;
@@ -141,7 +141,7 @@ scroll: it will add the scroll bar always.
 hidden: it will hide the extra contents. 
 visible: it will show the extra contents without scroll bar.
 
-/* 17. fload and clear, clearfix */
+/* 17. float and clear, clearfix */
 Float helps to place the element on left or right side of its container.
 It is used to wrap text around the element.
 Float has 4 value: 
@@ -157,6 +157,17 @@ right: The elemnt is pushed below right floated element.
 both: The element is pushed below both left and right floated elements.
 none: The element is not pushed below any floated elements.This is default.
 inherit: The element will inherit the clear value from parent element.
+
+Clearfix: If a floates element is taller than containing element then it will overflow outside of the container. To solve this we can add clearfix hack...
+.clearfix{
+    overflow: auto;
+}
+The new modern way to do clearfix is to use the pseudo-element ::after.
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 /* 18. pseudo-class and pseudo-element */
 Pseudo-class: It is used to specify special state of an element. We use ":" for pseudoclass.
@@ -178,13 +189,13 @@ There are 4 types of combinators,
                        Eg: div p {
                         color: blue;
                        }   
-                       This is applicable for all p element present inside div element. 
+                       This is applicable for all p element present inside div element. If some p elements are placed inside another element inside div, then also it will apply.
 2.Child combinator: It is used to select all the elements that are children of specified element. It is represented with ">". 
                     Eg: div > p {
                         color: blue;
                     }  
-                    This will select all p elements which is children of div element . 
-3.Next sibling combinator: It is used to select the element which is immediate next to the specified element. It is represented with "+". 
+                    This will select all p elements which is children of div element . If some p elements are placed inside another element inside div, then it will not apply.
+3.Next sibling combinator: It is used to select the element which is immediate after to the specified element. It is represented with "+". 
                             Eg: h1 + p {
                                 color: blue;
                             }
@@ -196,5 +207,133 @@ There are 4 types of combinators,
                              It selects all the elements which are next siblings of specified element   
 
 /* 22. flex */
+Flex is a layout model that allows you to design a complex layout structure in a more efficient way. It is one-dimentional, meaning it can arrange items in a row or a column.
+ display: flex;  Enables flexbox
+ justify-content  Aligns items horizontally
+ align-items  Aligns items vertically
+ flex-wrap  Controls wrapping of elements
 
 /* 23. grid */
+Grid is a layout model that allows you to design a complex layout structure in a two-dimensional way.
+ display: grid;  Enables CSS Grid
+ grid-template-columns  Defines column structure
+ grid-gap  Adds spacing between grid items
+
+ /*  24. RWD */
+Responsive Web Design (RWD) is a design approach that ensures web pages look good on all devices by using flexible layouts, images, and CSS media queries.
+Media queries allow you to apply different styles based on device characteristics like width, height, and orientation
+
+/*  25. CSS Variables */
+CSS Variables, also known as Custom Properties, allow you to store values that can be reused throughout your CSS.
+They are defined using the -- prefix and can be accessed using the var() function.
+eg:
+:root{          
+  --main-color: blue;
+} 
+  p {
+   color: var(--main-color);
+  }
+Note: This is the root element, where we define global variables. The :root selector in CSS targets the highest-level parent of the document
+ 
+/* 26. CSS Preprocessors */
+SASS - Syntactically Awesome Style Sheet , it is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). 
+SCSS - Sassy CSS. It is a superset of CSS3 syntax.
+LESS - Leaner Style Sheets. It is a dynamic preprocessor style sheet language.
+
+/* 27. SASS Mixins */
+Mixins are a powerful feature in SASS that allow you to create reusable blocks of styles.
+They can include variables, functions, and even other mixins.
+Eg:
+/* The @mixin directive lets you create CSS code that is to be reused throughout the website. */
+    @mixin rounded-border($radius) {
+    border-radius: $radius;
+    }
+    /* The @include directive is created to let you use (include) the mixin. */
+    .box {
+        @include rounded-border(10px);
+    }
+
+/* 28. Media queries */
+1. Mobile portrait
+   @media screen and (min-width: 320px) and (max-width: 479px) {
+       /* styles for mobile portrait */
+   }
+2. Mobile landscape
+   @media screen and (min-width: 480px) and (max-width: 767px) {
+       /* styles for mobile landscape */
+   }
+3. Tablet 
+   @media screen and (min-width: 768px) and (max-width: 1024px) {
+       /* styles for tablet */
+   }   
+4. Desktop
+    @media only screen and (min-width: 1200px) {
+         /* styles for desktop */
+    }   
+
+ /* 29. CSS Frameworks */
+  Bootstrap - A popular CSS framework that provides pre-designed components and a responsive grid system.
+  Tailwind CSS - A utility-first CSS framework that allows you to build custom designs without leaving your HTML.
+ 
+/* 30. BEM */
+    BEM (Block Element Modifier) is a methodology for naming CSS classes in a way that makes them reusable and maintainable.
+  
+/* 31. Transitions and Animations */
+    Transitions allow you to change property values smoothly (over a given duration).
+    Animations allow you to create complex sequences of changes to CSS properties.
+    Example of transition:
+    .box {
+        transition: background-color 0.5s ease;
+    }
+    .box:hover {
+        background-color: blue;
+    }
+    ease in above means the transition will start slowly and then speed up.
+    
+    Example of animation:
+    @keyframes slide {
+        from { transform: translateX(0); }
+        to { transform: translateX(100px); }
+    }
+    .box {
+        animation: slide 2s infinite;
+    }
+
+/* 32. Framework vs Library */
+A framework and a library are both collections of pre-written code, but they differ in their relationship with your application
+
+Library: A library is a set of functions that you call upon to perform specific tasks within your code, giving you control over the application's flow.
+Framework: A framework, on the other hand, is a more structured environment that dictates the overall architecture and flow of your application, and it often calls your code at specific points.
+
+/* 33. CSS Reset */
+A CSS reset is a set of styles that removes default browser styling to ensure consistency across different browsers.
+It helps to create a clean slate for your styles.
+Example of a simple CSS reset:  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 34. contain */
+ The contain property tells the browser that it is independent of the rest of the page, so it can optimize rendering and layout calculations.
+ eg: 
+    .container {
+        contain: layout style;
+        width: 100%;
+        height: 100%;
+        background-color: lightblue;
+    } 
+
+/*35. will-change  */
+The will-change property allows you to inform the browser about upcoming changes to an element, enabling it to optimize rendering performance.
+It can be used to improve performance for animations, transitions, and other dynamic changes.
+eg: 
+    .box {
+        will-change: transform, opacity;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .box:hover {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
