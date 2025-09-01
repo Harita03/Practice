@@ -1,0 +1,404 @@
+<!-- 1. what is JS -->
+ JavaScript is a programming language to describe the behaviour of the web pae.
+ It is a scripting language which is loaded, parsed and executed by the browser.
+ It is client-side language, which means it runs on the user's computer rather than on the server.
+ We can run javascript on server using Node.js.
+ JS don't have compilers but we have interpreters.
+INTERPRETERS: It executes the code line by line.
+COMPILERS: It converts the whole code into machine code at once.
+ 
+ <!-- 2. How many ways we can define JS  -->
+    JavaScript can be defined in two ways:
+    1. Internal: We can include JavaScript code within a <script></script> tag in the HTML document's `<head>` or `<body>` section.
+    2. External: We can write JavaScript code in a separate file with a `.js` extension and link it to the HTML document like this: 
+        <script src="script.js"></script> 
+    NOTE: We can place this <script></script> tag in the `<head>` or at the end of the `<body>` section.
+          Placing scripts before the closing of </body> tag is recommended to ensure that the HTML content is fully loaded before the script runs,
+           which can help prevent errors related to accessing DOM elements that may not yet exist.
+
+<!-- 3. How many ways to desplay output  -->
+ There are 4 ways,
+ 1. document.getElementById("id").innerHTML : when you want to changge HTML element
+ 2. document.getElementById("id").innerText: when you want to change text of HTML element
+ 3.document.write() : using .write() after html is loaded, it will delete all existing html. Use it for testing only.
+ 4.console.log(): when you want to display output in the console for debugging purposes.
+ 5.windows.alert(): when you want to display a popup alert box with a message.
+ NOTE: To access HTML element you can use document.getElementById("id")
+
+<!--  4. Naming Convention -->
+  In JS, variable names are case-sensitive. 
+  Variable name can start with a letter, underscore(_), dollar sign($). But it cannot start with number or hypen(-) => because it is reserved for subtraction. 
+  CAMEL-CASE: It is a naming convention where the first word is in lowercase and subsequent words start with an uppercase letter, e.g., `myVariableName`.
+  PASCAL-CASE: It is similar to camel-case but the first letter of the first word is also capitalized, e.g., `MyVariableName`.
+
+<!-- 5. Variables  -->
+ Variables are the containers for storing data values.
+ There are 3 types of variables.
+ 1. var: 
+        It is global scoped variable.
+        It can ve reclared and redefined.
+        It is hoisted, which means it can be used before its declaration.
+ 2.let: 
+       It is block scoped variable.
+       It cannot be reclared in the same scope but it can be redefined.
+       It is not hoisted, which means it cannot be used before its declaration.
+ 3.const: 
+        It is block scoped variable.
+        It cannot be reclared or redefined.
+        It is not hoisted, which means it cannot be used before its declaration.
+
+<!-- 6. Hoisting  -->
+    Hoisting means where variables and function declarations are moved to the top of their containing scope.
+    This means that you can use variables and functions before they are declared in the code.
+    However, only the declarations are hoisted, not the initializations. 
+    Example 1:
+    console.log(x); // undefined
+    var x = 5;
+    console.log(x); // 5
+    In this case, the declaration of `x` is hoisted, but its initialization is not, so the first `console.log` outputs `undefined`.
+    Example 2:  
+    console.log(y); // ReferenceError: Cannot access 'y' before initialization
+    let y = 3;
+
+<!-- 7. Operators -->
+ Operators used to perform mathematical and logical operations on variables and values.
+ There are 8 types of Operators:
+ 1. Arithmetic operator:
+    a. Additon(+)
+    b. Subtraction(-)
+    c. Multiplication(*)
+    d. Division(/)
+    e. Modulus(%)   => returns the remainder of a division operation.
+    f. Exponentiation(**)  => do the square of a number. eg: 5**2(5 to the power of 2) means 5*5 => 25
+    g. Increment(++) => increases the value of a variable by 1. 
+    h. Decrement(--) => decreases the value of a variable by 1.
+ 2. Assignment operator:
+    a. = 
+    b. +=  => eg: x += 5 is equivalent to x = x + 5
+    c. -=
+    d. *=
+    e. /=
+    f/ %=
+    g. **=
+ 3. Comparision operator:
+    a. ==  => checks for equality of values, but not types.
+    b. !=
+    c. === => checks for equality of both values and types.
+    d. !==
+    e. >
+    f. < 
+    g. >= 
+    h. <= 
+ 4. Logical operator:
+    a. && => logical AND, returns true if both operands are true. eg: 5 && 1 will return 1
+    b. || => logical OR, returns true if at least one operand is true.  eg: 5 || 1 will return 5
+    c. !  => logical NOT, negates the truthiness of the operand. 
+ 5. Bitwise operator:
+   a. &  => bitwise AND, performs a bitwise AND operation on two numbers.(both should be 1 then it will return 1)
+   b. |  => bitwise OR, performs a bitwise OR operation on two numbers (either one should be 1 then it will return 1)
+   c. ^  => bitwise XOR, performs a bitwise exclusive OR operation on two numbers. (if both are same then it will return 0, if both are different then it will return 1)
+   d. ~  => bitwise NOT, inverts the bits of a number. (0 becomes 1 and 1 becomes 0)
+ 6. String operator:
+    a. +  => concatenation operator, used to join two or more strings together.
+    b. += => appends the right operand to the left operand and assigns the result to the left operand.
+ 7. Ternary operator:
+     ? : => it is a shorthand for an if-else statement. It takes three operands: a condition, a value if true, and a value if false.
+       Syntax: condition ? valueIfTrue : valueIfFalse;
+       Example: let result = (5 > 3) ? "Greater" : "Smaller"; // result will be "Greater"
+ 8. Type operator:
+   typeof => used to determine the type of a variable or value.
+   instanceof => used to check if an object is an instance of a specific class or constructor function. 
+
+   <!-- 8. Data types -->
+     There are 2 types : Primitive and Non-primitive. 
+     Primitives are of fixed size and immutable, while non-primitives are of variable size and mutable.
+     1. Primitive data types: There are 7 primitive data types ,
+        a. Number: Represents both integer and floating-point numbers. Example: `let num = 42;`
+        b. String: Represents a sequence of characters enclosed in single or double quotes. Example: `let str = "Hello";`
+        c. Boolean: Represents a logical value, either true or false. Example: `let isTrue = true;`
+        d. Undefined: Represents a variable that has been declared but not assigned a value. Example: `let x; // x is undefined`
+        e. Null: Represents the intentional absence of any object value. Example: `let emptyValue = null;`
+        f. Symbol: Represents a unique and immutable value, often used as object property keys. Example: `let sym = Symbol("description");`
+        g. BigInt: Represents integers with arbitrary precision, useful for very large numbers. Example: `let bigIntValue = 1234567890123456789012345678901234567890n;`
+     2. Non-primitive data types: There are 3 non-primitive data types,
+        a. Object: Represents a collection of key-value pairs, enclosed in curly braces. Example: `let obj = { name: "John", age: 30 };`
+        b. Array: Represents an ordered list of values, enclosed in square bracket. Example: `let arr = [1, 2, 3, 4];`
+        c. Function: Represents a reusable block of code that can be called with arguments. Example: `function greet() { console.log("Hello!"); }`
+
+ <!-- 9. Does JS have Dynamic data type-->
+    JS has dynamic data type. Which means we can change the data type of a variable at runtime.
+    Eg: var x; // x is undefined
+        x = 5; // x is now a number
+        x = "Hello"; // x is now a string
+
+<!-- 10. String methods -->
+ Strings are sequenve os characters enclosed in single or double quotes.Even we can use backticks(``) to define strings. 
+    length : returns length of the string. 
+    toUppercase: converts the string to uppercase.
+    toLowercase: converts the string to lowercase.
+    charAt(): if we specify an index, it will return the character at that index. If we don't specify an index, it will return the first character of the string.
+    at(): similar to charAt(), but it allows use of negative index where charAt() does not.
+    includes(): checks if a substring is present in the string and returns true or false.
+    concat(): joins two or more strings together and returns a new string.eg: x.concat(' ', y)
+    indexOf(): returns the index of the first occurrence of a substring in the string. If the substring is not found, it returns -1.
+    lastIndexOf(): returns the index of the last occurrence of a substring in the string. If the substring is not found, it returns -1.
+    slice(): extracts a section of the string and returns it as a new string.
+    substring(): similar to slice(), but it does not support negative indices.
+    split(): splits the string into an array of substrings based on a specified delimiter.
+    replace(): replaces a specified substring with another substring in the string.
+    replaceAll(): replaces all occurrences of a specified substring with another substring in the string.
+    trim(): removes whitespace from both ends of the string.    
+    trimStart(): removes whitespace from the beginning of the string.
+    trimEnd(): removes whitespace from the end of the string.
+    repeat(): returns a new string that repeats the original string a specified number of times.
+
+<!-- 11. Number methods -->
+ Numbers are defined as floating point numbers in JS with or without decimals. 
+    toString(): converts the number to a string representation.
+    toFixed(): formats the number to a specified number of decimal places and returns it as a string.It will do round-off. 
+    toPrecision(): formats the number to a specified total number of significant digits and returns it as a string.
+    parseInt(): converts a string to an integer, optionally specifying the base (radix).
+    parseFloat(): converts a string to a floating-point number.
+    isNaN(): checks if a value is NaN (Not-a-Number).
+    valueOf(): returns the primitive value of a number object.
+    Number.isInteger(): checks if a value is an integer. 
+
+<!-- 12. BigInt -->
+ If the number is too large to be represented as a regular number, we can use BigInt.
+
+<!-- 13. Boolean  -->
+  It is a data type that can have only two values: true or false.
+  True: 1
+  False: 0
+
+<!-- 14. does primitives are mutable-->
+   No, primitive data-types are immutable, which means their values cannot be changed once they are created.
+
+<!-- 15. Function and it's types-->
+    A function starts with a keyword "function" followed by function_name and paranthesis() which may contains parameters and followed by
+    curly braces {} which contains the code to be executed with return statement. Then function will be invoked or called by function_name().
+    It is a reusable block of code designed to perform particular task.
+     There are 2 types of functions:
+    1. Function Declaration: It is a named function that is defined using the function keyword.
+        Example:
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+        let message = greet("Alice");
+        console.log(message); // Output: Hello, Alice!
+    2. Function Expression: It is an anonymous function that is assigned to a variable.
+        Example:
+        const add = function(a, b) {
+            return a + b;
+        };
+        let sum = add(5, 3);
+        console.log(sum); // Output: 8
+
+<!-- 16. Arrow Function -->
+  It is an ES6 feature that provides a shorter syntax for writing functions.
+  It is always an anonymous function. 
+  Functional wise it behaves exactly same as function expression.
+  Example:
+   const multiply = (a, b) => a * b; // if there is only one statement we can skip curly braces and return keyword.
+   let product = multiply(4, 5);
+   console.log(product); // Output: 20 
+
+<!-- 17. Parameters and Arguments -->
+ PARAMETERS: It will be present in function definition. Eg: function add(a, b) { return a + b; } Here a and b are parameters.
+ ARGUMENTS: It will be present in function call or invokation. Eg: add(5, 3); Here 5 and 3 are arguments.
+
+ <!-- 18. this Keyword -->
+    It is a keyword not a variable.
+    It refers to global object, used along with call, apply and bind methods.
+    In strict mode, it will be undefined.
+
+<!-- 19. Call, Apply and Bind methods -->
+ CALL: 
+      call() method is a predifined JS method. 
+      It is used to invole a method with an object as an argument.
+      Call() method can also access a method from another object. 
+      It takes arguments separately.
+
+      Eg1:(without arguments) 
+        function greet(){
+         return "Hello"+ ' ' + this.name;
+        }
+        let person = {name: 'Haritha'}
+        greet.call(person);    // Returns Hello Haritha
+         
+      Eg2:(with arguments)
+        function greet(message){
+           return 'Hello' + ' ' + this.name + ', ' + message;
+        }
+        var person = {name:'Haritha'}
+        greet.call(person, 'Good Morning');   // Returns Hello Haritha, Good Morning
+
+APPLY: 
+      apply() method is aslo similar to call() method. 
+      The only diffrence is it takes arguments as an array.
+      Eg: 
+      function greet(message){
+         return 'Hello' +' '+ this.name +', '+ message ;    
+        }
+        let person = {name:'haritha'}
+        greet.apply(person, ['Good Morning']);  // Returns Hello Haritha, Good Morning
+
+BIND: 
+      It returns a new function, where the value of 'this' is bound to the provided object.
+      It takes arguments separately.
+      Eg:
+      function greet(message){
+         return 'Hello' + ' ' + this.name + ', ' + message;
+        }
+        let person = {name:'haritha'}
+        let boundGreet = greet.bind(person);
+        boundGreet('Good Morning');  // Returns Hello Haritha, Good Morning
+        
+<!-- 20. Closure -->
+    The ability of a function to remember and access its lexical scope even when the function is executed outside that scope.
+    Example:
+      function outerFunction(outerVariable) {
+         return function innerFunction(innerVariable) {
+               console.log('Outer Variable: ' + outerVariable);
+               console.log('Inner Variable: ' + innerVariable);
+         }
+      }
+      const newFunction = outerFunction('outside');
+      newFunction('inside');
+      // Output:
+      // Outer Variable: outside 
+      // Inner Variable: inside
+
+<!-- 21. Callback function --> 
+    A callback is a function which is passed as an argument to another function. 
+    This technique allows a function to call another function.
+    A callback function can run after another function has finished.
+    It can be synchronous or asynchronous.
+
+    Example: (synchronous callback)
+      function greet(name, callback) {
+         console.log('Hello ' + name);
+         callback();
+      }
+      function sayGoodbye() {
+         console.log('Goodbye!');
+      }
+      greet('Alice', sayGoodbye);
+      // Output:
+      // Hello Alice
+      // Goodbye!
+
+      Example:(asynchronous callback - setTimeout)
+      function fetchData(callback) {
+         setTimeout(() => {
+            const data = "Sample Data";
+            callback(data);
+         }, 2000);
+      }
+      function displayData(data) {
+         console.log("Data received: " + data);
+      }
+      fetchData(displayData);
+      // After 2 seconds, it will log: Data received: Sample Data
+
+      Example:(asynchronous callback - setInterval) 
+      function showTime() {
+         const now = new Date();
+         console.log("Current Time: " + now.toLocaleTimeString());
+      }
+      setInterval(showTime, 1000); // Calls showTime every second
+
+      NOTE:
+      setTimeout() => It is a predefined JS function that executes a function after a specified delay in milliseconds.
+      setInterval() => It is a predefined JS function that repeatedly executes a function at specified intervals in milliseconds.
+
+<!-- 22. IIFE -->
+    Immediately Invoked Function Expression is a function that runs as soon as it is defined and it will not wait for the function to be called. 
+    Eg1:
+      (function() {
+         console.log("This function runs immediately!");
+      })();
+      // Output: This function runs immediately!
+
+     Eg2: We can also pass parameters to IIFE
+      (function(name) {
+         console.log("Hello, " + name + "!");
+      })('Haritha'); 
+      // Output: Hello, Haritha!
+
+      Eg3: using arrow function
+      ((name) => {
+         console.log("Hello, " + name + "!");
+      })('Haritha');
+      // Output: Hello, Haritha! 
+
+<!-- 23. Promise -->
+    Promises are used to handle asynchronous operations in JavaScript. 
+    It has properties of state and result but we cannot access them directly, with the help of 3 states we can achieve it,
+       Pending - here the result is undefined,
+       Fulfilled - here the result has value,
+       Rejected - here it has error object 
+   A promise is created using Promise constructor which takes in the callback function which has 2 parameters resolve and reject .   
+   Eg:
+     const myPromise = new Promise((resolve, reject) => {
+        const success = true; // Simulating a successful operation
+        if (success) {
+           resolve("Operation was successful!");
+        } else {
+           reject("Operation failed.");
+        }
+     });
+
+     myPromise
+        .then((message) => {
+           console.log(message); // Output: Operation was successful!
+        })
+        .catch((error) => {
+           console.error(error); // Output: Operation failed.
+        }); 
+    
+<!-- 24. Async/Await -->
+  Async makes a function which returns a promise. 
+  Await makes a function which will wait for a promise. It can be used inside of async function only. 
+  Eg:
+    function fetchData() {
+       return new Promise((resolve) => {
+          setTimeout(() => {
+             resolve("Data fetched!");
+          }, 2000);
+       });
+    }
+
+    async function getData() {
+       console.log("Fetching data...");
+       const data = await fetchData();
+       console.log(data); // Output: Data fetched!
+    }
+
+    getData();
+    // Output:
+    // Fetching data...
+    // (after 2 seconds) Data fetched! 
+
+    <!-- 25. Consoles --> 
+      There are 7 types of consoles:
+      1. console.log(): It is used to print general messages or output to the console. Eg: console.log("Hello, World!");
+      2. console.error(): It is used to log error messages to the console. Eg: console.error("This is an error message.");
+      3. console.warn(): To highlight potential issues that don't require immediate action. Eg: console.warn("This is a warning message.");  
+      4. console.info(): It is used to log informational messages to the console. Eg: console.info("This is an info message.");
+      5. console.dir(): To inspect JS objects or DOM elements. Eg: console.dir(document.querySelector('body'));
+      6. console.table(): It is used to display tabular data in a table format. Eg: console.table([{name: "Alice", age: 25}, {name: "Bob", age: 30}]);
+      7. console.time() and console.timeEnd(): These methods are used to measure the time taken by a block of code to execute. 
+         Eg:
+         console.time('API fetch');
+         setTimeout(() => {
+            console.timeEnd('API fetch'); // Logs the time taken to execute the code block
+         }, 2000);
+      8. console.group() and console.groupEnd(): These methods are used to group related log messages together in the console, making it easier to read and organize output.
+              Eg:
+         console.group('User Details');
+         console.log('Name: Alice');
+         console.log('Age: 25');
+         console.groupEnd();
+      9.debugger: to pause code execution at a specific point for debugging purposes. Eg: debugger;
+

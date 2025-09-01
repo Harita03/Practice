@@ -1,4 +1,4 @@
-/* 1. What is CSS */
+ <!-- 1. What is CSS  -->
 CSS stands for Cascading Style Sheet 
 It is used to style the webpage including design and layout. 
 It can control layout of multiple pages at once. 
@@ -8,7 +8,7 @@ syntax :
         property: value;
      }
 
-/* 2. ways to include css*/
+ <!-- 2. ways to include css -->
 There are 3 ways to write your css, 
 Inline: It will be inside your html element, on starting tag. 
         Eg: <p style="color:black; font-size:"20px;">This is a paragraph.</p>
@@ -29,7 +29,7 @@ External: It will be written in external file, saved with .css extension and lin
 NOTE: Priority of css will follow below order, 
                   Inline > Internal > External
 
-/* 3. Selectors */
+<!-- 3. Selectors  -->
 There are 6 selectors,
 Universal selector: It will select all the elements. 
                     Eg: * {
@@ -56,16 +56,16 @@ attribute selector :  It selects based on attribute and value.
                          color: black;
                      }
 
-/* 4. Box model */
+ <!-- 4. Box model  -->
       It helps to structure the design and layout. 
       It contains content, padding, border, margin. 
       
-/* 5.opacity */
+ <!-- 5.opacity  -->
      It specifies the transparency of an element.
      The value lies between 0.0 to 1.0.
      The lower the value, the more transparent.
       
-/* 6. Text */
+ <!-- 6. Text  -->
 text-align: center, left, right, justify
 text-decoration: none, underline
 text-transformation: uppercase, lowercase, capitalize
@@ -73,7 +73,7 @@ line-height: 2
 align-items: cenetr, left, right
 justify-content: center, left, right
 
-/* 7.Background */
+ <!-- 7.Background  -->
 background-image: url("sample.jpg");
 background-color: black;
 background-repeat: no-repeat, repeat-x, repeat-y
@@ -81,20 +81,20 @@ background-attachment: fixed, scroll
 background-position: center, top, bottom, left, right
 background-size: cover
 
-/* 8.margin and padding */
+<!-- 8.margin and padding  -->
 margin: top, right, bottom, left;
 padding: top, right, bottom, left;
 
-/* 9.font */
+ <!-- 9.font  -->
 font-style: italic, normal
 font-size: 20px 
 font-weight: bold 
 font-family: sans-serif, serif
 
-/* 10. list */
+ <!-- 10. list  -->
 list-style-type: none, circle, square 
 
-/* 11.display */
+ <!-- 11.display  -->
 There are 6 types,
 inline: it will take up only necessary space and width, padding and margin will work for left and right. 
 block: it will always starts on new line and take up whole width. 
@@ -107,16 +107,16 @@ grid: it will display the element as grid container. It works in 2 dimentions, b
 NOTE: visibility: hidden; will hide the element but take up the space
       display: none; will hide the element and not take up the space
 
-/*12. width and max-width */
+<!-- 12. width and max-width  -->
 The difference between width and max-width is, 
    If we specify some value which is larger than screen size then it will make alignment issue.
    To overcome this, we use max-width property. It will adjust the width in that small screen size.
 
-/*13. height and vh */
+<!-- 13. height and vh  -->
 If we specify height which is larger than screen size then it will exceed.
 To overcome this, we use viewport height (vh) property. It will cover the height in that small screen size.
 
-/* 14.position */
+<!-- 14.position  -->
 There are 5 types of position,
 static: It is positioned relative to its normal flow. By default html element will be static. 
         Not affected by top, right, bottom, left properties.
@@ -128,20 +128,20 @@ absolute: It is positioned relative to its nearest positioned anchester.
 sticky: It is positioned relative to teh user scroll position.
          It will act like relative until it reaches a defined scroll position, then it will act like fixed.
 
-/* 15.z-index */
+ <!-- 15.z-index  -->
 It is used to specify the stack order of element.
 If we use positon property then it will ctreate overlap issue. To resolve this, we use z-index property.
 The element value can be positive or negative.
 It can be used only on positioned elements or flex items.
 
-/* 16. overflow */
+ <!-- 16. overflow -->
 It haf 4 values, 
 auto: it will add scroll whenever needed. 
 scroll: it will add the scroll bar always. 
 hidden: it will hide the extra contents. 
 visible: it will show the extra contents without scroll bar.
 
-/* 17. float and clear, clearfix */
+ <!-- 17. float and clear, clearfix  -->
 Float helps to place the element on left or right side of its container.
 It is used to wrap text around the element.
 Float has 4 value: 
@@ -169,21 +169,21 @@ The new modern way to do clearfix is to use the pseudo-element ::after.
     clear: both;
 }
 
-/* 18. pseudo-class and pseudo-element */
+ <!-- 18. pseudo-class and pseudo-element  -->
 Pseudo-class: It is used to specify special state of an element. We use ":" for pseudoclass.
               Eg: a:link, a:hover, a:visited, a:active, p:first-child, p:nth-child(4), tr:nth-child(odd),
 Pseudo-element: It is used to specify part of an element, We use "::" for pseudoelement.
               Eg: a::after, a::before, p::first-letter, p::first-line             
 
-/* 19.Specificity */
+ <!-- 19.Specificity  -->
 If we use Inline, internal and externall css together, then for certain element we face issue of which css to apply. To resolve, we use specificity.
   Inline > Id selector > Class selector/pseudo-class > Attribute selector > Element selector/pseudo-element
 
-/* 20.Rounded border*/
+ <!-- 20.Rounded border -->
 If you want rounded corner then use below property,
 border-radius: 50px; /* for circle */
 
-/* 21.combinators */
+ <!-- 21.combinators  -->
 There are 4 types of combinators,
 1.Descendant combinator: It is used to selects all the element that are descendant of a specified element. It is represented with space.
                        Eg: div p {
@@ -206,24 +206,24 @@ There are 4 types of combinators,
                                 }
                              It selects all the elements which are next siblings of specified element   
 
-/* 22. flex */
+ <!-- 22. flex  -->
 Flex is a layout model that allows you to design a complex layout structure in a more efficient way. It is one-dimentional, meaning it can arrange items in a row or a column.
  display: flex;  Enables flexbox
  justify-content  Aligns items horizontally
  align-items  Aligns items vertically
  flex-wrap  Controls wrapping of elements
 
-/* 23. grid */
+ <!-- 23. grid  -->
 Grid is a layout model that allows you to design a complex layout structure in a two-dimensional way.
  display: grid;  Enables CSS Grid
  grid-template-columns  Defines column structure
  grid-gap  Adds spacing between grid items
 
- /*  24. RWD */
+   <!-- 24. RWD  -->
 Responsive Web Design (RWD) is a design approach that ensures web pages look good on all devices by using flexible layouts, images, and CSS media queries.
 Media queries allow you to apply different styles based on device characteristics like width, height, and orientation
 
-/*  25. CSS Variables */
+ <!-- 25. CSS Variables  -->
 CSS Variables, also known as Custom Properties, allow you to store values that can be reused throughout your CSS.
 They are defined using the -- prefix and can be accessed using the var() function.
 eg:
@@ -235,12 +235,12 @@ eg:
   }
 Note: This is the root element, where we define global variables. The :root selector in CSS targets the highest-level parent of the document
  
-/* 26. CSS Preprocessors */
+<!-- 26. CSS Preprocessors  -->
 SASS - Syntactically Awesome Style Sheet , it is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS). 
 SCSS - Sassy CSS. It is a superset of CSS3 syntax.
 LESS - Leaner Style Sheets. It is a dynamic preprocessor style sheet language.
 
-/* 27. SASS Mixins */
+<!-- 27. SASS Mixins  -->
 Mixins are a powerful feature in SASS that allow you to create reusable blocks of styles.
 They can include variables, functions, and even other mixins.
 Eg:
@@ -253,7 +253,7 @@ Eg:
         @include rounded-border(10px);
     }
 
-/* 28. Media queries */
+    <!-- 28. Media queries -->
 1. Mobile portrait
    @media screen and (min-width: 320px) and (max-width: 479px) {
        /* styles for mobile portrait */
@@ -271,14 +271,14 @@ Eg:
          /* styles for desktop */
     }   
 
- /* 29. CSS Frameworks */
+ <!-- 29. CSS Frameworks  -->
   Bootstrap - A popular CSS framework that provides pre-designed components and a responsive grid system.
   Tailwind CSS - A utility-first CSS framework that allows you to build custom designs without leaving your HTML.
  
-/* 30. BEM */
+ <!-- 30. BEM  -->
     BEM (Block Element Modifier) is a methodology for naming CSS classes in a way that makes them reusable and maintainable.
   
-/* 31. Transitions and Animations */
+ <!-- 31. Transitions and Animations  -->
     Transitions allow you to change property values smoothly (over a given duration).
     Animations allow you to create complex sequences of changes to CSS properties.
     Example of transition:
@@ -299,13 +299,13 @@ Eg:
         animation: slide 2s infinite;
     }
 
-/* 32. Framework vs Library */
+<!-- 32. Framework vs Library  -->
 A framework and a library are both collections of pre-written code, but they differ in their relationship with your application
 
 Library: A library is a set of functions that you call upon to perform specific tasks within your code, giving you control over the application's flow.
 Framework: A framework, on the other hand, is a more structured environment that dictates the overall architecture and flow of your application, and it often calls your code at specific points.
 
-/* 33. CSS Reset */
+ <!-- 33. CSS Reset  -->
 A CSS reset is a set of styles that removes default browser styling to ensure consistency across different browsers.
 It helps to create a clean slate for your styles.
 Example of a simple CSS reset:  
@@ -315,7 +315,7 @@ Example of a simple CSS reset:
     box-sizing: border-box;
 }
 
-/* 34. contain */
+ <!-- 34. contain  -->
  The contain property tells the browser that it is independent of the rest of the page, so it can optimize rendering and layout calculations.
  eg: 
     .container {
@@ -325,7 +325,7 @@ Example of a simple CSS reset:
         background-color: lightblue;
     } 
 
-/*35. will-change  */
+<!-- 35. will-change   -->
 The will-change property allows you to inform the browser about upcoming changes to an element, enabling it to optimize rendering performance.
 It can be used to improve performance for animations, transitions, and other dynamic changes.
 eg: 
