@@ -22,7 +22,7 @@ Basic structure:
 </html>
 
 <!-- 2.HTML elements -->
-It includes form starting tag ,conytent and ending tag.
+It includes form starting tag ,content and ending tag.
 EG:
 <start>content...</start>
 
@@ -36,7 +36,7 @@ style => It is used for inline styling. Looks like  => style="property:value;"
 
 <!-- 4.HTML tags -->
 h1 to h6  => h1 holds the most important heading and h6 holds the least important heading
-p => paragraph tag used to display the content. It always stars on new line. If you want to break the like then use <br> or you want to separate the content then use <hr>
+p => paragraph tag used to display the content. It always stars on new line. If you want to break the line then use <br> or you want to separate the content then use <hr>
 a => anchor tag used to create hyperlinks. It has href attribute which holds the url. <a href="https://sampleurl.com">Sample url</a>
 div => It acts as a container for other elements. It is used to group the content. It is block level.
 
@@ -68,7 +68,7 @@ We need to add id to the content, then need to provide the value of id in href a
 <img> tag is used to display the images.
 It looks like => <img src="girl.jpg" alt="girl image"> 
 src => it will hold the path where image is saved
-alt => it will provide the description of the image , while brower cant able to load it.
+alt => it will provide the description of the image , while brower can't able to load it.
 Background image,
 We can add background image only through style. 
 eg: <p style="background-image:url('girl.jpg');" ></p>      
@@ -207,7 +207,7 @@ It is of 2 types,
 Localstorage: Stores large amount of data without any expiration.. [window.localStorage]
 Sessionstorage: stores large amount of data for that one session, if you come out of the page then you will lose data [window.sessionStorage]
 
-<!-- http methods -->
+<!-- 17. http methods -->
 It stands for Hyper Text Transfer Protocol.
 It used to enable the communication between client and server.
 It works like request-response protocol between client and server.
@@ -217,7 +217,7 @@ It works like request-response protocol between client and server.
 GET: used to get data from server
 POST: used to send data to server to create/update a resource
 PUT: used to send data to server to create/upadate a resource   
-    //Diff betwee PUT and POST is, if you call PUT request with same data again, it will update the resource with same data, 
+    //Diff between PUT and POST is, if you call PUT request with same data again, it will update the resource with same data, 
     but POST will create a new resource with same data which leads to multiple resource with same data.
 PATCH: used to update partial data to server
 HEAD: identical to GET , the difference is it will not return the response body, only contains the head details
@@ -231,3 +231,80 @@ Here are some status codes,
 404: not found
 500: internal server error
 502: bad gateway
+
+<!-- 18. Cookies and Types -->
+ Cookies are small text files stored by a website in your browser to remember information about you.
+
+ TYPES:
+ 1. Session Cookies: 
+          - Temporary cookies
+          - Stored only while you are browsing
+          - Deleted automatically once you close browser
+    EG: Used for login sessions and shopping carts . Staying logged in while moving between pages      
+ 2. Persistent Cookies: 
+          - Stored for fixed time. 
+          - Remain after closing the browser 
+    EG: Used to remember preferences like language or theme when you login next time   
+ 3. First-party Cookies:
+          - Created by website you are visiting 
+          - Generally safe and essential 
+    EG: Used for site functionality and user settings. Saved login details on your bank website. 
+ 4. Third-party Cookies:   
+          - Created by different website or advertiser 
+          - Can affect privacy 
+    EG: Commonly used for ads and tracking 
+ 5. Secure Cookies:  
+          - Sent only over HTTPS (secure) connections     
+          - Protect sensitive data 
+    EG: Online payment websites 
+ 6. HTTPOnly Cookies: 
+          - Cannot be accessed by javascript. 
+          - Protected against Hacking attack. 
+ 7. SameSite Cookies: 
+          - Control how cookies are shared across sites.
+          - Help prevent cross-site attacks
+          -Types : Strict, Lax, None 
+          
+<!-- 19. Cookies VS Cache VS Local storage -->
+ Cookies: Small text data stored by website and sent to server with every request. User authentication.
+ Cache: Stored copies of website files like images, CSS and JS. Faster website loading.
+ Localstorage: Browser storage feature for saving data locally using JS. Store user data on client side. 
+
+ <!-- 20. Comment code in HTML  -->
+     HTML comments are not displayed in the browser.
+     It cannot be nested.
+     <!-- This is the way to comment HTML content-->
+
+<!--  21. SEO -->
+  Search Engine Optimization is the process of improving website's visibility on search engines like Google to get organic traffic.
+  It is important because, 
+       - Increases website traffic
+       - Improves brand visibility
+  Types:
+    1. On-Page SEO: Optimizing content and html elements on website page to improve rankings.
+    2. Off-Page SEO: Actions taken outside the website to improve ranking and authority.
+    3. Technical SEO: Focuses on improving the technical aspects of a website to help search engines crawl and index it efficiently.
+    4. Local SEO: Helps in location based searches like:“Best salon near me”
+    5. Content SEO: Focuses on producing useful, high quality, and keyword optimized content     
+
+<!--  22. Search Engine -->
+  A search engine is a tool (like Google, Bing) that helps users find information on the internet by crawling, 
+  indexing, and ranking web pages.
+
+<!--  23. SEO TOOLS -->
+     - Google Analytics
+     - Google Search Console
+     - Ahrefs
+     - SEMrush
+     - Ubersuggest
+     - Yoast SEO
+
+<!--  24. Optimize HTML performance-->
+     - Reduce DOM size
+     - Use semantic tags
+     - Lazy load images (loading="lazy") 
+
+<!--  25. How semantic HTML improve accessibility and SEO -->
+  Screen readers understand structure better
+  Search engines understand content hierarchy
+Examples: <article>, <nav>, <section>, <header>, <footer>

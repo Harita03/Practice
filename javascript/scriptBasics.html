@@ -6,8 +6,13 @@
  JS don't have compilers but we have interpreters.
 INTERPRETERS: It executes the code line by line.
 COMPILERS: It converts the whole code into machine code at once.
+
+JS is a programming language not a library or framework.
+But we can build library using JS like React JS, JQuery,...
+We can build framework using JS like Angular, Vue,...
+
  
- <!-- 2. How many ways we can define JS  -->
+<!-- 2. How many ways we can define JS  -->
     JavaScript can be defined in two ways:
     1. Internal: We can include JavaScript code within a <script></script> tag in the HTML document's `<head>` or `<body>` section.
     2. External: We can write JavaScript code in a separate file with a `.js` extension and link it to the HTML document like this: 
@@ -16,16 +21,16 @@ COMPILERS: It converts the whole code into machine code at once.
           Placing scripts before the closing of </body> tag is recommended to ensure that the HTML content is fully loaded before the script runs,
            which can help prevent errors related to accessing DOM elements that may not yet exist.
 
-<!-- 3. How many ways to desplay output  -->
+<!-- 3. How many ways to display output  -->
  There are 4 ways,
- 1. document.getElementById("id").innerHTML : when you want to changge HTML element
+ 1. document.getElementById("id").innerHTML : when you want to change HTML element
  2. document.getElementById("id").innerText: when you want to change text of HTML element
- 3.document.write() : using .write() after html is loaded, it will delete all existing html. Use it for testing only.
- 4.console.log(): when you want to display output in the console for debugging purposes.
- 5.windows.alert(): when you want to display a popup alert box with a message.
+ 3. document.write() : using .write() after html is loaded, it will delete all existing html. Use it for testing only.
+ 4. console.log(): when you want to display output in the console for debugging purposes.
+ 5. windows.alert(): when you want to display a popup alert box with a message.
  NOTE: To access HTML element you can use document.getElementById("id")
 
-<!--  4. Naming Convention -->
+<!-- 4. Naming Convention -->
   In JS, variable names are case-sensitive. 
   Variable name can start with a letter, underscore(_), dollar sign($). But it cannot start with number or hypen(-) => because it is reserved for subtraction. 
   CAMEL-CASE: It is a naming convention where the first word is in lowercase and subsequent words start with an uppercase letter, e.g., `myVariableName`.
@@ -36,15 +41,15 @@ COMPILERS: It converts the whole code into machine code at once.
  There are 3 types of variables.
  1. var: 
         It is global scoped variable.
-        It can ve reclared and redefined.
+        It can be redeclared and redefined.
         It is hoisted, which means it can be used before its declaration.
  2.let: 
        It is block scoped variable.
-       It cannot be reclared in the same scope but it can be redefined.
+       It cannot be redeclared in the same scope but it can be redefined.
        It is not hoisted, which means it cannot be used before its declaration.
  3.const: 
         It is block scoped variable.
-        It cannot be reclared or redefined.
+        It cannot be redeclared or redefined.
         It is not hoisted, which means it cannot be used before its declaration.
 
 <!-- 6. Hoisting  -->
@@ -109,7 +114,7 @@ COMPILERS: It converts the whole code into machine code at once.
    typeof => used to determine the type of a variable or value.
    instanceof => used to check if an object is an instance of a specific class or constructor function. 
 
-   <!-- 8. Data types -->
+<!-- 8. Data types -->
      There are 2 types : Primitive and Non-primitive. 
      Primitives are of fixed size and immutable, while non-primitives are of variable size and mutable.
      1. Primitive data types: There are 7 primitive data types ,
@@ -174,7 +179,207 @@ COMPILERS: It converts the whole code into machine code at once.
 <!-- 14. does primitives are mutable-->
    No, primitive data-types are immutable, which means their values cannot be changed once they are created.
 
-<!-- 15. Function and it's types-->
+<!-- 15. Coercion -->
+   Type Coercion is the process by which Javascript converts one data type into another either
+ automatically or explicitly, to evaluate expression.
+ There are 2 main types,
+ 1. Implicit Coercion : Automatically converts data types during operations. eg: "10" + 2 = 102, true + 1 = 2
+ 2. Explicit Coercion : Developer intentionally converts the data type. eg: Number("5") //5
+NOTE:
+ Loose Equality(==): automatically converts before comparing the value
+ Strict Equality(===): checks for both value and type, does not convert the type automatically.
+
+<!-- 16. Operator precedence-->
+  It defines the execution order. "BODMAS"
+  Brackets = (), {}, []
+  Orders = powers, roots
+  Division = /
+  Multiplication = *
+  Addition = +
+  Subtraction = -
+
+<!-- 17. Scope -->
+  Scope in JS determines where variables, functions and objects are accessible in a program.
+  There are 3 types,
+  1. Global Scope: Variable declared outside of any function/block. Accessible anywhere in a program. Keyword: Var
+  2. Functional Scope: Variable declared inside a function is accessible only inside that function scope.
+  3. Block Scope: Variable declared with let and const are block scoped{}. It is ES6 feature.
+NOTE:
+  SCOPE CHAIN: It is a process by which JS resolves variables by searching from current scope to outer scope upto global scope.
+               JS only seraches upward in scope chain.
+
+<!-- 18. Strict mode -->
+    It makes JS behave more strictly to prevent common mistakes and bad practices.
+    We can enable strict mode by adding this at top of the fucntion => "use strict";
+NOTE: All ES6 modules are by default in strict mode.  
+      If we use strict mode then, 'this' keyword will become undefined in functions.  
+
+<!-- 19. Getters/Setters -->
+     Getters are used to get(read) a value and Setters are used to set(update) a value in an object like 
+   properties but with logic.
+
+<!-- 20. Execution context and Types -->
+    Execution context is an environment where JS code is evaluated and executed.
+    There are 2 types,
+   1. Global execution context: GEC is created first even before your code starts running.
+         - created only once 
+         - belongs to global scope 
+      It performs 2 phases:
+        a) Memory creation phase => Hoisting
+        note: let and const are hoisted but kept in Temporal Dead Zone
+        b) Execution phase => executes code line by line. 
+
+   2. Functional execution context: Whenever a function is called, new FEC is created. After execution FEC is removed from call stack
+
+   NOTES:
+     - JS is single threaded
+     - Only one execution context runs at a time 
+     - Execution context is managed using call stack.
+
+<!-- 21. Variable shadowing -->
+    Variable shadowing occurs when a variable declared in an inner scope has the same name as a variable in an outer scope.
+   The inner variable shadows(hides) the outer one with that scope.
+NOTE: Scope chain runs in => Current scope > outer scope > global scope
+
+<!-- 22. Lexical Scope -->
+Inner functions can access variables from outer functions.
+eg: 
+function outer() {
+  let x = 10;
+  function inner() {
+    console.log(x);
+  }
+  inner();
+}
+outer(); // 10
+
+<!-- 23. Call stack -->
+   - It keeps records of JS function calls and executes them one at a time.
+   - JS is single threaded and executes one function at a time, to manage this function execution order JS have call stack.
+   - It follows LIFO(last in, first out)
+         - push: when a function is called it is added to the Stack 
+         - pop: when a function execution done, it is removed from the stack
+
+  STACK OVERFLOW: It occurs when the call stack exceeds its maximum size, meaning too many 
+  execution contexts (function calls) are pushed onto the stack and there is no more memory space left to handle them.       
+
+<!-- 24. Heap Memory --> 
+    Heap memory is the area of memory where non-primitive data like objects, arrays, functions are stored dynamically.
+  - Primitive data → simple, fixed size
+  - Non-primitive data → complex, variable size
+   Since objects and arrays can grow or shrink at runtime, they are stored in heap memory, which is flexible.
+
+<!-- 25. Garbage Collection -->
+    - JavaScript automatically frees heap memory using garbage collection.
+    - It is automatic memory management process that removes unused objects from memory.
+  NOTE:
+    Mark-and-Sweep is a garbage collection algorithm that marks all reachable objects and removes the objects that are not reachable.  
+
+<!-- 26. Stack vs Heap -->
+    Call stack: Function calls and execution context 
+    Heap: Memory allocation for objects
+
+<!-- 27. Memory leak -->
+   A memory leak happens when heap memory is not released even though it's no longer needed.
+
+<!-- 28. Pass by value / Pass by reference -->
+  Pass by value:
+     - Primitive types are pass by value
+     - When a primitive value is passed to a function, a copy of the value is passed.
+     - Changing it inside the function does not affect the original variable.
+  Pass by reference:
+     - Non-Primitive types are pass by reference 
+     - When object(array, function) is passed to a function, the reference to the object is passed. 
+     - Both the variable and the parameter point to the same object in heap memory
+     - Changes inside the function affect the original object
+ NOTE: JS is technically always pass by value.
+       To avoid modifying original objects we use Spread operator    
+
+<!-- 29. test() and exec() -->
+   Both are RegExp methods.
+   test() => used to check whether pattern exists in a string. Returns a boolean value(true/false)
+   exec() => used to search for a pattern and return detailed match information.
+              -It returns an array (if match found)
+              -Returns null (if no match)
+
+<!-- 30. Currying -->
+    Currying is the process of converting a function with multiple arguments into multiple nested functions, 
+each taking one argument at a time. 
+example:
+1. Normal Function (Not Curried):
+function add(a, b, c) {
+  return a + b + c;
+}
+add(1, 2, 3); // 6   => all arguments passed at once
+
+2.  Curried Function:
+function add(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+add(1)(2)(3); // 6  => arguments passed one by one
+
+NOTE: JS doesn't have built-in currying but you can manually implememt it using libraries like Lodash provide _.curry()
+
+<!-- 31. Rest parameter / Spread operator -->
+ Both use the same syntax (...), but they are used for opposite purposes. Introduced in ES6.
+ 1.Rest → Collect values => Rest parameter gathers multiple values into a single array.
+ 2.Spread → Expand values => The spread operator expands an array, object, or iterable into individual elements.
+EXAMPLE:
+// Rest → collect
+function test(...args) {
+  console.log(args);
+}
+test(1, 2, 3); // [1, 2, 3]
+
+// Spread → expand
+let nums = [1, 2, 3];
+console.log(...nums); // 1 2 3
+
+<!-- 32. Temporal dead zone -->
+ The Temporal Dead Zone is the time between variable hoisting and initialization where accessing a let or const 
+ variable results in an error.
+
+<!-- 33. Deferred scripts -->
+ A deferred script is a JavaScript file that loads asynchronously but executes only after the HTML document has been 
+ completely parsed.
+ <script src="app.js" defer></script>
+
+<!-- 34. Prop drilling -->
+ this is covered in react part
+
+<!-- 35. Stop propagation -->
+ Stop propagation is a technique used in JavaScript to prevent an event from bubbling or capturing to parent elements in the DOM.
+ stopPropagation() stops an event from moving further through the DOM event flow.
+
+<!-- 36. Class -->
+ A class in JavaScript is a template for creating objects with shared properties and methods.
+ It is introduced in ES6.
+ SYNTAX:
+      class ClassName {
+      constructor(parameters) {
+         // initialize properties
+      }
+
+      methodName() {
+         // method definition
+      }
+      }
+EXAMPLE:
+      class Person{
+         constructor(age,gender,salary){
+            this.age = age;
+            this.gender = gender;
+            this.salary = salary;
+      }
+      }
+
+      var admin = new Person(24, "Female", 1000);
+
+<!-- 37. Function and it's types-->
     A function starts with a keyword "function" followed by function_name and paranthesis() which may contains parameters and followed by
     curly braces {} which contains the code to be executed with return statement. Then function will be invoked or called by function_name().
     It is a reusable block of code designed to perform particular task.
@@ -194,7 +399,7 @@ COMPILERS: It converts the whole code into machine code at once.
         let sum = add(5, 3);
         console.log(sum); // Output: 8
 
-<!-- 16. Arrow Function -->
+<!-- 38. Arrow Function -->
   It is an ES6 feature that provides a shorter syntax for writing functions.
   It is always an anonymous function. 
   Functional wise it behaves exactly same as function expression.
@@ -203,19 +408,23 @@ COMPILERS: It converts the whole code into machine code at once.
    let product = multiply(4, 5);
    console.log(product); // Output: 20 
 
-<!-- 17. Parameters and Arguments -->
+<!-- 39. Parameters and Arguments -->
  PARAMETERS: It will be present in function definition. Eg: function add(a, b) { return a + b; } Here a and b are parameters.
  ARGUMENTS: It will be present in function call or invokation. Eg: add(5, 3); Here 5 and 3 are arguments.
 
- <!-- 18. this Keyword -->
+ <!-- 40. this Keyword -->
     It is a keyword not a variable.
     It refers to global object, used along with call, apply and bind methods.
     In strict mode, it will be undefined.
 
-<!-- 19. Call, Apply and Bind methods -->
+<!-- 41. How THIS behaves in various scenarios -->
+    - This refers to the context (owner) in which a function is executed.
+    - This is determined at runtime, based on how a function is invoked.
+
+<!-- 42. Call, Apply and Bind methods -->
  CALL: 
       call() method is a predifined JS method. 
-      It is used to invole a method with an object as an argument.
+      It is used to involve a method with an object as an argument.
       Call() method can also access a method from another object. 
       It takes arguments separately.
 
@@ -254,7 +463,7 @@ BIND:
         let boundGreet = greet.bind(person);
         boundGreet('Good Morning');  // Returns Hello Haritha, Good Morning
         
-<!-- 20. Closure -->
+<!-- 43. Closure -->
     The ability of a function to remember and access its lexical scope even when the function is executed outside that scope.
     Example:
       function outerFunction(outerVariable) {
@@ -269,7 +478,7 @@ BIND:
       // Outer Variable: outside 
       // Inner Variable: inside
 
-<!-- 21. Callback function --> 
+<!-- 44. Callback function --> 
     A callback is a function which is passed as an argument to another function. 
     This technique allows a function to call another function.
     A callback function can run after another function has finished.
@@ -312,7 +521,7 @@ BIND:
       setTimeout() => It is a predefined JS function that executes a function after a specified delay in milliseconds.
       setInterval() => It is a predefined JS function that repeatedly executes a function at specified intervals in milliseconds.
 
-<!-- 22. IIFE -->
+<!-- 45. IIFE -->
     Immediately Invoked Function Expression is a function that runs as soon as it is defined and it will not wait for the function to be called. 
     Eg1:
       (function() {
@@ -332,7 +541,7 @@ BIND:
       })('Haritha');
       // Output: Hello, Haritha! 
 
-<!-- 23. Promise -->
+<!-- 46. Promise -->
     Promises are used to handle asynchronous operations in JavaScript. 
     It has properties of state and result but we cannot access them directly, with the help of 3 states we can achieve it,
        Pending - here the result is undefined,
@@ -357,7 +566,7 @@ BIND:
            console.error(error); // Output: Operation failed.
         }); 
     
-<!-- 24. Async/Await -->
+<!-- 47. Async/Await -->
   Async makes a function which returns a promise. 
   Await makes a function which will wait for a promise. It can be used inside of async function only. 
   Eg:
@@ -380,7 +589,7 @@ BIND:
     // Fetching data...
     // (after 2 seconds) Data fetched! 
 
-    <!-- 25. Consoles --> 
+<!-- 48. Consoles --> 
       There are 7 types of consoles:
       1. console.log(): It is used to print general messages or output to the console. Eg: console.log("Hello, World!");
       2. console.error(): It is used to log error messages to the console. Eg: console.error("This is an error message.");
@@ -402,3 +611,11 @@ BIND:
          console.groupEnd();
       9.debugger: to pause code execution at a specific point for debugging purposes. Eg: debugger;
 
+<!-- 49. First class function -->
+A first-class function is a function that can be assigned to variables, passed as arguments, returned from other 
+functions, and stored in data structures.
+
+<!-- 50. Higher order function -->
+ A higher-order function is a function that operates on other functions by taking them as arguments or returning them.
+ ex: addEventListener , setTimeout,..
+ Built-in HOF => map(), forEach(), filter(), reduce()

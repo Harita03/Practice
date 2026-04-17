@@ -11,7 +11,7 @@ syntax :
  <!-- 2. ways to include css -->
 There are 3 ways to write your css, 
 Inline: It will be inside your html element, on starting tag. 
-        Eg: <p style="color:black; font-size:"20px;">This is a paragraph.</p>
+        Eg: <p style="color:black; font-size:20px;">This is a paragraph.</p>
 Internal: It will be placed in head section and wrapped around style element.
         Eg: <head> 
               <style>
@@ -95,7 +95,7 @@ font-family: sans-serif, serif
 list-style-type: none, circle, square 
 
  <!-- 11.display  -->
-There are 6 types,
+There are 7 types,
 inline: it will take up only necessary space and width, padding and margin will work for left and right. 
 block: it will always starts on new line and take up whole width. 
 inline-block: it will only take up necessary space and width, but padding and margin will work for all sides. 
@@ -122,15 +122,15 @@ static: It is positioned relative to its normal flow. By default html element wi
         Not affected by top, right, bottom, left properties.
 relative: It is positioned relative to its normal position. 
           It will react for top, right, bottom, left properties.
-fixed: It is positioned relative to its viewport, which means it alwauys stays in same position even page is scrolled.
+fixed: It is positioned relative to its viewport, which means it always stays in same position even page is scrolled.
        It will respond to top, right, bottom, left properties. 
 absolute: It is positioned relative to its nearest positioned anchester.
-sticky: It is positioned relative to teh user scroll position.
+sticky: It is positioned relative to the user scroll position.
          It will act like relative until it reaches a defined scroll position, then it will act like fixed.
 
  <!-- 15.z-index  -->
 It is used to specify the stack order of element.
-If we use positon property then it will ctreate overlap issue. To resolve this, we use z-index property.
+If we use positon property then it will create overlap issue. To resolve this, we use z-index property.
 The element value can be positive or negative.
 It can be used only on positioned elements or flex items.
 
@@ -158,7 +158,7 @@ both: The element is pushed below both left and right floated elements.
 none: The element is not pushed below any floated elements.This is default.
 inherit: The element will inherit the clear value from parent element.
 
-Clearfix: If a floates element is taller than containing element then it will overflow outside of the container. To solve this we can add clearfix hack...
+Clearfix: If a floated element is taller than containing element then it will overflow outside of the container. To solve this we can add clearfix hack...
 .clearfix{
     overflow: auto;
 }
@@ -337,3 +337,8 @@ eg:
         transform: scale(1.1);
         opacity: 0.8;
     }
+
+<!-- 36. How do you optimize CSS performance -->
+     - Remove unused CSS
+     - Minify files
+     - Avoid deep selectors
