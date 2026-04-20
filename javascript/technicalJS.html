@@ -1,0 +1,534 @@
+<!-- 51. Object --> 
+    Ojects are variables that store both values and functions. 
+        - Values are stored as key:value pairs called properties.
+        - Functions are stored as key:function() pairs called methods.
+    To access ojects:
+       1. Dot notation: objectName.propertyName
+       2. Bracket notation: objectName['propertyName']
+    To display objects:
+       1.Displaying the Object Properties by name
+       2.Displaying the Object Properties in a Loop
+       3.Displaying the Object using Object.values()
+       4.Displaying the Object using JSON.stringify()
+    eg: 
+//object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};  
+//1.Displaying Object Properties
+let text = person.name + "," + person.age + "," + person.city;
+//2.Using a For .. In Loop
+let text = "";
+for (let x in person) {
+  text += person[x] + " ";
+};
+//3.Using Object.values()
+  - Object.values() creates an array from the property values
+// Create an Array
+const myArray = Object.values(person);
+// Stringify the Array
+let text = myArray.toString(); 
+//4.Using JSON.stringify()
+  - JavaScript objects can be converted to a string with JSON method JSON.stringify().          
+let text = JSON.stringify(person);
+
+   NOTE:
+      - You should declare object with const keyword    
+      - All JS values except primitive datatypes are objects 
+
+<!-- 52. Object Literal -->
+      It is used to describe an object using a concise syntax with zero or more key:value pairs inside curly
+ braces to describe all the object properties.
+ eg: const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};  
+
+ <!-- 53. Object Methods -->
+    - Methods are actions that can be performed on objects.
+    - Methods are functions stored as property values.
+    - In object method, 'this' refers to the object.
+To access the object method ,
+    objectName.methodName(). // without paranthesis you get the function itself
+eg:
+let person = {
+  name: "Haritha",
+  greet: function () {
+    return "Hello!";
+  }
+};
+
+Built-in methods:
+  1. Object.keys(objectName) 
+  2. Object.values(objectName)
+  3. Object.entries(objectName)
+EG: 
+let user = {let user = "Haritha",
+  age: 25
+};
+Object.keys(user);    // ["name", "age"]
+Object.values(user);  // ["Haritha", 25]
+Object.entries(user); // [["name","Haritha"],["age",25]
+
+<!-- 54. Object Constructor -->
+    It is a special function used to create multiple objects of the same type with the same properties and methods.
+    It acts like template for creating objects.
+    An object constructor is a regular function, but:
+        - It starts with a capital letter (convention)
+        - It is used with the new keyword
+        - Use this to assign properties
+        - Prefer prototype methods for performance
+        - Classes are modern alternatives
+eg: 
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    }     // person is an object constructor
+    Creating Objects Using Constructor (new keyword):
+    let person1 = new Person("Haritha", 25);
+    let person2 = new Person("Anitha", 28);
+
+Adding methods inside constructor:
+    - Method is craeted for each object
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function () {
+        return "Hello, " + this.name;
+    };
+    }
+    let p = new Person("Haritha", 25);
+    console.log(p.greet());
+
+Better Way: Using prototype (Memory Efficient)
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    }
+    Person.prototype.greet = function () {
+    return "Hello, " + this.name;
+    };
+
+Built-in Object Constructors :
+    let obj = new Object();
+    let arr = new Array();
+    let date = new Date();
+    let str = new String("hello");
+NOTE: Mostly we use object literals instead of new Object() and new Array() like this, 
+    let obj = {};
+    let arr = [];
+    
+<!-- 55. Comparing objects -->
+      Comparing objects returns false because objects are compared by reference, not by value.
+      In JavaScript, object comparison returns true only when both variables reference the same object in memory.
+Otherwise, it returns false even if the object contents are identical.
+
+<!-- 56. Constructor vs Class -->
+    In JavaScript, constructor functions and classes are both used to create objects. Constructor functions are 
+the older ES5 approach, while classes are a cleaner ES6 syntax. Internally, classes still use constructor 
+functions and prototypes, but they make object creation and inheritance easier and more readable.
+Constructor (Old way):
+    function Person(name) {
+    this.name = name;
+    }
+ 
+Class (Modern way):
+    class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    }
+NOTE: Internally, classes work using constructors
+
+<!-- 57. Add a property -->
+    To add a property to a constructor object using prototype in JavaScript, you attach that property to the 
+constructor's prototype, not inside the constructor function itself.
+    This makes the property shared by all objects created from that constructor.
+ eg: Basic constructor:
+    function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    }
+
+    Adding property using prototype:
+      syntax: ConstructorName.prototype.propertyName = value;
+ eg: Person.prototype.country = "India";
+
+ <!-- 58. Prototypal Inheritance -->
+     Prototypal inheritance means one object can access properties and methods of another object via its prototype, allowing shared behavior without copying.
+     Every JavaScript object has a hidden link to another object called its prototype.
+     If a property is not found in the object itself, JavaScript looks up the prototype chain.
+PROTOTYPE CHAIN: child → parent → Object.prototype → null
+    - JS checks child
+    - If not found, checks parent
+    - Then Object.prototype
+    - Stops at null      
+
+<!-- 59. Oject.freeze() and Object.seal() -->
+ Object.freeze():
+     - It completely locks an object. 
+     - After freezing an object,
+          - You cannot add new properties
+          - You cannot delete existing properties
+          - You cannot modify existing values
+          - You cannot reconfigure properties
+     - Object becomes fully immutable 
+ 
+Object.seal(): 
+     - It partially locks an object. 
+     - After sealing an object, 
+        - You cannot add new properties
+        - You cannot delete existing properties
+        - You can modify existing property values   
+     - Object is sealed but editable  
+     
+<!-- 60. Event bubbling and capturing --> 
+ Event Bubbling: Event Bubbling means the event starts from the target element and moves upward to its parent 
+                 elements. Default behavior in JavaScript.
+ Event Capturing: Event Capturing means the event starts from the top (window/document) and travels down to 
+                 the target element. Not default, you must explicitly enable it.  
+                 
+<!-- 61. Object copy -->
+ In JavaScript, object copying means creating a new object from an existing one.
+There are two types of copies:
+1. Shallow Copy:
+       - Copies only the first level
+       - Nested objects are shared by reference
+       - Changes to nested objects affect both copies.
+  Ways to create shallow copy: Spread operator(...), Object.assign()     
+2. Deep Copy:
+       - Copies all levels
+       - Nested objects get new memory
+       - Changes do not affect original object 
+  Ways to create deep copy: JSON.parse(JSON.stringify()), structuredClone()     
+
+<!-- 62. Polyfills and Shim -->
+ Polyfills: A polyfill is JavaScript code that implements a feature that the browser does not natively support,
+            so that the feature behaves exactly like the standard specification. It fills the gap for missing features.
+    Features that needs polyfills:
+       - Array.prototype.includes()
+       - Array.prototype.find()
+       - Object.assign()
+       - Promise
+       - fetch()
+       - String.prototype.startsWith()    
+       
+Shim: A shim is a broader concept that provides compatibility for missing APIs or behaviors, possibly by changing 
+      existing functionality.       
+
+NOTE: A polyfill is a type of shim, but not all shims are exact polyfills      
+
+<!-- 63. JS Class and Arrow function --> 
+ Class: A class in JavaScript is syntactic sugar over prototypal inheritance, used to create objects with
+        shared behavior using constructors and methods.
+ Arrow function: An arrow function is a concise function syntax that does not have its own this, arguments, 
+                 or constructor, making it ideal for callbacks and lexical scope handling.  
+                 
+<!--  64. JSON -->
+  JSON stands for JavaScript Object Notation.
+  It is a lightweight data-interchange format used to store and exchange data between a client and a server.
+  Language independent(not only for js)
+Used for:
+  - Send data from server → browser
+  - Store and transfer structured data
+  - Work with APIs and web services  
+
+<!-- 65. NaN -->
+ NaN stands for Not-a-Number.
+  It is a special numeric value in JavaScript that represents the result of an invalid or undefined mathematical operation.
+  Even though it means not a number, its type is number.
+Eg: 
+let result = 10 / "abc";
+console.log(result); // NaN
+    
+<!-- 66. Events -->
+ In JavaScript, events are actions or occurrences that happen in the browser, which JavaScript can detect 
+ and respond to.
+ Events can be triggered by:
+        1. User actions
+            Clicking a button (click)
+            Typing in a textbox (keydown, keyup)
+            Moving the mouse (mouseover)
+            Submitting a form (submit)
+        2. Browser actions
+            Page loading (load)
+            Window resizing (resize)
+            Page unloading (beforeunload)
+
+NOTE: Events make web pages interactive.
+
+Event Handler: An event handler is a function that runs when an event occurs.
+     SYNTAX: element.addEventListener("eventName", handlerFunction);
+     EG: 
+        btn.addEventListener("click", sayHello);
+        function sayHello() {
+        console.log("Hello!");
+        }
+    1. Mouse events: click, mouseover, mouseout, mouseenter, mouseleave  
+    2. Keyboard events: keydown, keyup, keypress
+    3. Form Events: submit, change, focus, blur
+    4. Window events: load, resize, scroll  
+
+<!-- 67. Array -->
+       In JavaScript, an array is a data structure used to store multiple values in a single variable.
+These values are stored in an ordered list, and each value is accessed using an index.
+       Always declare arrays with const keyword.
+       Array index starts at [0].
+       Arrays are a special kind of objects, with numbered indexes.
+
+Ways to create arrays:
+  1. Array literal: [1,2,3]
+  2. using new Array() 
+
+Ways to access arrays:
+ 1. using index number  
+ 2. using for Loop 
+ 3. using for....of 
+ 4. using forEach() 
+ 5. using destructuring
+
+ <!-- 68. Array Methods -->
+    - length  => returns length of an array
+    - toString() => return elements of array as comma separated strings 
+    - at() => introduced in ES2022, based on index number provided it returns the element from array.
+    - join() => Joins all array elements into string. Behaves same like toString() but here you can specify the separator
+    - push() => adds new element at the end
+    - pop() => removes last element from array
+    - shift() => removes first element
+    - unshift() => adds new element to beginning of an array
+    - isArray() 
+    - delete() => It leaves undefined holes in array, so instead use pop method
+    - concat() => creates new array by merging existing arrays
+    - flat() => creates new array with sub-array elements concatenated.
+    - slice() => slice out piece of an array into new array
+    - splice() => adds new items to array but also make changes to original array.
+    - toSliced() => similar to splice() method but it creates a new array, keeping the original array unchanged
+
+ ARRAY SEARCH:
+     - indexOf() => searches for an element in array and returns its position. If not found then returns [-1]
+     - lastIndexOf() => similar to previous one but it return the position of last occurence.
+     - includes() => checks whether element present in an array
+     - find() => returns the value of the first array element that passes a test function.
+     - findIndex() =>  returns the index of the first array element that passes a test function.
+   
+ ARRAY SORT:
+     - sort() => sorts array alphabetically
+     - reverse() => reverses element in an array
+     - toSorted() => to sort an array without altering the original array.
+     - toReversed() => to reverse an array without altering the original array
+     - Math.min() => to find higher number in array
+     - Math.max() => to find lower number in array 
+     
+ ARRAY ITERATION:
+     - forEach => calls a function (a callback function) once for each array element.
+     - map() => creates a new array by performing a function on each array element.
+     - flatMap() => first maps all elements of an array and then creates a new array by flattening the array.
+     - filter() => creates a new array with array elements that pass a test.
+     - reduce() => runs a function on each array element to produce a single value. Does not reduce the original array.
+     - every() => checks if all array values pass a test
+     - some() => checks if some array values pass a test.
+     - from() => ES6 feature, execute a function on each element of the new array.
+     - keys() => returns an Array Iterator object with the keys of an array. ES6 feature.
+     - entries() => returns an Array Iterator object with key/value pairs. ES6 feature.
+     - with() => safe way to update elements in an array without altering the original array. ES2023 feature.
+     - Spread => expands an array into individual elements. ES6 feature.
+     - Rest => allows us to destruct an array and collect the leftovers. ES2018 feature. 
+
+<!-- 69. Sets and methods -->
+ SET: 
+     - It is a collection of unique value.
+     - Each value can occur only once in a Set, duplicates are automatically ignored.
+     - The values can be of any types, primitives or objects.
+     - Introduced in ES6.
+     - Sets are objects, typeof returns object.
+ Create a Set:
+     - Passing an array to new Set()
+     - Create an empty set and use add() to add values
+ Methods:
+     - add() => add a new value to the set
+     - clear() => removes all values
+     - delete() => removes value from the set
+     - entries() => returns [value, value] pairs
+     - forEach() => similar to array forEach()
+     - has() => checks if the value exists in the set
+     - keys() => same as values, Sets don't have keys like objects
+     - values() => returns an iterator of values
+     - size =>  returns number of elements. It is property not a function  
+
+WeakSet:
+     - Stores only objects. This restriction is tied to the garbage collection mechanism; primitives are not garbage collected in the same way as objects.
+     - Holds weak references to its values
+     - Not iterable(ou cannot iterate over the values with for loops, forEach(), or values()) 
+     - Used for memory safe references   
+  
+Set Logic: It is ECMA 2025 feature
+    - union() => returns new set containing elements of both sets
+    - intersection() => returns new set containing elements which are common in both sets
+    - difference() => returns new set containing elements which are in this set but not in argument set.
+    - isSubsetOf() => returns true if all elements in this set is also elements in the argument set
+    - isSupersetOf() => returns true if all elements in the argument set are also in this set
+
+<!-- 70. Map and its methods -->
+     - A Map is a collection of key-value pairs where keys can be any type and elements are stored in insertion order.
+     - Built-in object, introduced in ES6.
+ Creating a Map:
+    - Passing an existing Array to the new Map() constructor
+    - Create a new Map and add elements with Map.set()
+ Map Methods:
+    - Map.get() => you get the value os the key in a map
+    - Map.set() => you can add elements to a map
+    - Map.size => returns number of elements in a map  
+    - Map.delete() => removes a element from map
+    - Map.clear() => removes all the map elements
+    - Map.has() => returns true if key exists
+    - Map.forEach() => invokes callback for each key/value pair
+    - Map.entries() => returns an iterator object with the [key,values] in a map
+    - Map.keys() => returns an iterator object with the keys in a map
+    - Map.values() => returns an iterator object with the values in a map
+    - Map.groupBy() => groups elements of an object according to string values returned from a callback function. Does not change the original object.
+    
+WeakMap:
+    - Collection of key/value pairs where the keys must be objects.    
+    - Primitive values cannot be used as keys in a WeakMap.
+    - You cannot iterate over the keys and values with for loops, forEach(), or keys().
+    - You cannot access the size
+
+<!-- 71. Loops -->
+    Loops used to execute the block of code repeatedly until specified condition is met.
+ TYPES:
+ 1. for loop: it is used when number of iterations are known.
+    syntax:
+      for (exp1; exp2; exp3) {
+        // code block to be executed
+      }
+    eg:
+      for (let i = 0; i < 5; i++) {
+        text += "The number is " + i + "<br>";
+      }  
+ 2. while loop: The while loop executes a block of code as long as a specified condition evaluates to true.
+    syntax: 
+       while (condition) {
+         // code block to be executed
+       }  
+    eg:
+       while (i < 10) {
+          text += "The number is " + i;
+          i++;
+       }      
+3. do...while loop: similar to the while loop, but guarantees that the code block will be executed at least once, before the condition is checked.     
+   syntax: 
+        do {
+          // code block to be executed
+        }
+        while (condition);
+    eg:
+      do {
+        text += "The number is " + i;
+        i++;
+      }
+      while (i < 10);    
+4. for...in loop: It is typically used for iterating over object keys.
+   syntax:       
+    for (key in object) {
+        // code block to be executed
+    }
+    eg: 
+    const person = {fname:"John", lname:"Doe", age:25};
+        let text = "";
+        for (let x in person) {
+        text += person[x];
+        }
+5. for...of loop: iterates over the values of iterable objects such as arrays, strings, Maps, Sets, and NodeLists.        
+   syntax:
+        for (variable of iterable) {
+          // code block to be executed
+        }
+    Eg:
+    const name = "W3Schools";
+        for (const x of name) {
+           // code block to be executed
+        } 
+
+ NOTE:
+    for - known iterations
+    while - condition based loops
+    do...while - at least one execution
+    for...of - arrays, strings
+    for...in - objects
+    forEach - Array iteration
+    map/filter - Transform or filter data  
+    
+<!-- 72. To optimize performance in JS -->
+     - Use Map / Set instead of arrays for frequent lookups
+     - Reduce DOM manipulations
+     - using Debouncing and throttling for events
+     - use async/await
+     - Avoid memory leaks
+     - prefer shallow copy, avoid deep copy
+     - lazy loading
+
+<!-- 73. Debouncing and Throttling -->
+      Debouncing and Throttling are performance‑optimization techniques used to control how often a function 
+executes, especially for frequently triggered events like scrolling, resizing, typing, or mouse movements.
+
+ DEBOUNCING: Debouncing ensures that a function runs only after a certain delay has passed since the last event trigger.
+             Function executes once, after the user stops performing the action.
+        uses: 
+            - Search box autocomplete
+            - Form validation
+            - Window resize handling
+            - API calls on typing   
+            
+ THROTTLING: Throttling ensures a function is executed at most once within a specified time interval.
+             Function runs at regular intervals, even if event keeps firing.
+        uses:
+            - Scroll events
+            - Mouse movement tracking
+            - Button click prevention
+            - Window resize optimization    
+            
+<!-- 74. Array Destructuring -->
+    Array destructuring is a feature introduced in ES6 that allows you to extract values from an array and 
+assign them to variables in a clean and readable way.
+eg:
+Before Destructuring: 
+    let numbers = [10, 20, 30];
+    let a = numbers[0];
+    let b = numbers[1];
+    let c = numbers[2];
+After array destructuring:
+    let [a, b, c] = [10, 20, 30]; 
+    console.log(a); // 10
+    console.log(b); // 20
+    console.log(c); // 30
+
+<!-- 75. Array vs Objects -->
+  => In JavaScript, arrays use numbered indexes.  
+     In JavaScript, objects use named indexes.
+
+  => You should use objects when you want the element names to be strings (text).
+     You should use arrays when you want the element names to be numbers.   
+
+<!-- 76. JS Generators -->
+ Generators in JavaScript are special functions defined using function* that can pause execution with the yield 
+ keyword and resume later. They return iterators and are useful for custom iteration, lazy evaluation, and \
+ managing complex flows.
+   - Introduced in ES6 (ES2015)
+   - Defined using function* syntax.
+   - Uses the yield keyword
+
+   syntax: function* myGenerator() {}
+
+   yield keyword:
+     - Pauses the generator function
+     - Sends a value outside
+     - Resumes from the same point next time
+  
+   Methods:
+    1. .next(value) => Moves to next yield
+    2. .return(value) => Stops generator completely
+    3. .throw(error) => Throws error inside generator
+    
+NOTE:
+    Before async/await , generators were used for asynchronouus flows.   
+
+
